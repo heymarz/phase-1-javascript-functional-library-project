@@ -62,9 +62,12 @@ const mySize = function(collection) {
   return collection.length || Object.keys(newCollection).length
 }
 
-const myFirst = function(array,[n]) {
-  //want to return first element in array
-  let first = array.slice(0,1).shift()
+const myFirst = function(array, n = false) {
+  console.log("first", array.slice(0,n))
+return (n) ? array.slice(0, n) : array[0]
+}
 
-  console.log (first)
+const myLast = function(array, n = false){
+  console.log(array.slice(array.length-n))
+  return (n) ? array.slice(array.length - 1, n) : array[array.length -1]
 }
