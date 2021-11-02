@@ -32,23 +32,39 @@ const myReduce = function(collection, callback, acc) {
     newCollection = newCollection.slice(1)
   }
   for(let i = 0; i < newCollection.length; i++) {
-    //below this line, please explain.
     acc = callback(acc, newCollection[i], newCollection)
   }
   return acc;
 }
 
-const myFind = function(collection, predicate) {
+const myFind = function(collection, callback) {
   let newCollection = standardizeInput(collection);
   for(let i = 0; i < newCollection.length; i++) {
-    //find predicate === element, why is it "(predicate(newCollection[idx]))"
-    if(predicate === newCollection[i])
+    if(callback(newCollection[i]))
     return newCollection[i];
   }
   return undefined;
 }
 
-const myFilter = function(collection, predicate){
+const myFilter = function(collection, callback){
   let newCollection = standardizeInput(collection);
-  
+  let newArray = [];
+  for(let i=0; i<newCollection.length;i++){
+    if(callback(newCollection[i])){
+      newArray.push(newCollection[i])
+    }
+  }
+  return newArray
+}
+
+const mySize = function(collection) {
+  let newCollection = standardizeInput(collection);
+  return collection.length || Object.keys(newCollection).length
+}
+
+const myFirst = function(array,[n]) {
+  //want to return first element in array
+  let first = array.slice(0,1).shift()
+
+  console.log (first)
 }
