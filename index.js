@@ -63,11 +63,17 @@ const mySize = function(collection) {
 }
 
 const myFirst = function(array, n = false) {
-  console.log("first", array.slice(0,n))
 return (n) ? array.slice(0, n) : array[0]
 }
 
 const myLast = function(array, n = false){
-  console.log(array.slice(array.length-n))
-  return (n) ? array.slice(array.length - 1, n) : array[array.length -1]
+  return (n) ? array.slice(array.length - n) : array[array.length -1]
+}
+
+const myKeys = function(object){
+  return Object.keys(object)
+}
+
+const myValues = function(object){
+  return Object.values(object)
 }
